@@ -1,0 +1,75 @@
+export interface Product {
+  id: string
+  name: string
+  category: string
+  price: number
+  colors: string[]
+  sizes: string[]
+  image: string
+  description: string
+}
+
+export const products: Product[] = [
+  {
+    id: 'rjgb-001',
+    name: 'Grocery Jute Bags',
+    category: 'grocery-bags',
+    price: 35,
+    colors: ['Natural', 'Brown'],
+    sizes: ['Large'],
+    image: '/images/products/grocery-bag.png',
+    description: 'Strong reusable jute grocery bags for shopping',
+  },
+  {
+    id: 'jgb-001',
+    name: 'Jute Gift Bags',
+    category: 'gift-bags',
+    price: 35,
+    colors: ['Natural', 'Brown'],
+    sizes: ['Small', 'Medium'],
+    image: '/images/products/gift-bag.webp',
+    description: 'Elegant jute gift bags for special occasions',
+  },
+  {
+    id: 'jcb-001',
+    name: 'Jute Cosmetic Bags',
+    category: 'cosmetic-bags',
+    price: 25,
+    colors: ['Natural', 'Brown', 'Black'],
+    sizes: ['Small'],
+    image: '/images/products/jute-cosmetic-bag.png',
+    description: 'Compact jute cosmetic bags for travel and daily use',
+  },
+  {
+    id: 'pjb-001',
+    name: 'Promotional Jute Bags',
+    category: 'promotional-bags',
+    price: 30,
+    colors: ['Natural', 'Brown', 'Black'],
+    sizes: ['Small', 'Medium'],
+    image: '/images/products/promotional-bags.png',
+    description: 'Cost-effective promotional jute bags for marketing campaigns',
+  },
+  {
+    id: 'cpjb-001',
+    name: 'Custom Printed Jute Bags',
+    category: 'custom-bags',
+    price: 65,
+    colors: ['Natural', 'Brown', 'Black'],
+    sizes: ['Medium', 'Large'],
+    image: '/images/products/customize-jute-bags.png',
+    description: 'Custom printed jute bags with your logo and design',
+  },
+]
+
+export const categories = [
+  { id: 'all', name: 'All Products' },
+  { id: 'grocery-bags', name: 'Grocery Bags' },
+  { id: 'gift-bags', name: 'Gift Bags' },
+  { id: 'cosmetic-bags', name: 'Cosmetic Bags' },
+  { id: 'promotional-bags', name: 'Promotional Bags' },
+  { id: 'custom-bags', name: 'Custom Printed Bags' },
+]
+
+export const colors = ['Natural', 'Brown', 'Black', 'Green']
+export const sizes = ['Small', 'Medium', 'Large', 'Extra Large']
