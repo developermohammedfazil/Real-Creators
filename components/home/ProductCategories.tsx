@@ -61,8 +61,8 @@ export default function ProductCategories() {
             key={category.id}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.1 }}
+            viewport={{ once: true, amount: 0.1 }}
+            transition={{ duration: 0.3 }}
           >
             <Link href={`/services?category=${category.id}`}>
               <div className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer">
@@ -71,6 +71,7 @@ export default function ProductCategories() {
                     src={category.image}
                     alt={category.name}
                     fill
+                    priority={index < 3}
                     className="object-cover group-hover:scale-110 transition-transform duration-500"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />

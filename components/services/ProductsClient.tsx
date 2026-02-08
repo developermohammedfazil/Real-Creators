@@ -45,7 +45,7 @@ export default function ProductsClient() {
       {/* Header Banner */}
       <div 
         className="relative bg-cover bg-center py-16"
-        style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=1920&h=600&fit=crop&q=80)' }}
+        style={{ backgroundImage: 'url(/images/service-banner.jpg)' }}
       >
         <div className="absolute inset-0 bg-black/50" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">

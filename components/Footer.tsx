@@ -47,7 +47,7 @@ export default function Footer() {
             <h3 className="text-white text-lg font-semibold mb-4">Get In Touch</h3>
             <div className="space-y-3">
               <a href="tel:+917358906378" className="flex items-center gap-2 hover:text-primary-400 transition-colors">
-                <FaPhone />
+                <FaPhone className="rotate-90" />
                 <span>+91 73589 06378</span>
               </a>
               <a href="mailto:realcreators319@gmail.com" className="flex items-center gap-2 hover:text-primary-400 transition-colors">

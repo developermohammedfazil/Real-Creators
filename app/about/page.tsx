@@ -13,7 +13,7 @@ export default function AboutPage() {
       {/* Hero Section */}
       <section 
         className="relative h-[40vh] bg-cover bg-center"
-        style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=1920&h=600&fit=crop&q=80)' }}
+        style={{ backgroundImage: 'url(/images/about-banner.png)' }}
       >
         <div className="absolute inset-0 bg-black/50" />
         <div className="absolute inset-0 flex items-center justify-center">
@@ -27,13 +27,13 @@ export default function AboutPage() {
       {/* Company Story */}
       <section className="section-container">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="relative h-96 rounded-xl overflow-hidden shadow-2xl">
+          <div className="relative h-96 md:h-96 w-full rounded-xl overflow-hidden">
             <Image
-              src="https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=1200&h=800&fit=crop"
+              src="/images/about/aboutimage.jpeg"
               alt="Real Creators Manufacturing"
               fill
-              className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-contain"
+              sizes="100vw"
             />
           </div>
           
@@ -41,12 +41,12 @@ export default function AboutPage() {
             <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Story</h2>
             <div className="space-y-4 text-gray-700 leading-relaxed">
               <p>
-                Real Creators was founded in 2008 with a vision to provide eco-friendly packaging solutions 
+                Real Creators was founded in 2019 with a vision to provide eco-friendly packaging solutions 
                 that don't compromise on quality or style. What started as a small workshop in Coimbatore 
                 has grown into a leading manufacturer of premium jute bags.
               </p>
               <p>
-                With over 15 years of experience, we've served more than 500 satisfied clients across India, 
+                With over 5 years of experience, we've served more than 500 satisfied clients across India, 
                 delivering over 50,000 custom jute bags. Our commitment to sustainability and craftsmanship 
                 has made us a trusted partner for businesses looking to make an environmental impact.
               </p>
@@ -136,7 +136,7 @@ export default function AboutPage() {
           <ul className="space-y-4 text-gray-700">
             <li className="flex items-start gap-3">
               <span className="text-primary-600 font-bold text-xl">✓</span>
-              <span>15+ years of industry experience and expertise</span>
+              <span>5+ years of industry experience and expertise</span>
             </li>
             <li className="flex items-start gap-3">
               <span className="text-primary-600 font-bold text-xl">✓</span>

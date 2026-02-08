@@ -77,8 +77,8 @@ export default function Highlights() {
                 key={highlight.id}
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.05 }}
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{ duration: 0.3 }}
                 className={`flex-shrink-0 ${index >= 3 ? 'md:block' : 'block'}`}
               >
                 <button
@@ -91,6 +91,7 @@ export default function Highlights() {
                         src={highlight.images ? highlight.images[0] : highlight.image}
                         alt={highlight.title}
                         fill
+                        priority={index < 6}
                         className="object-cover rounded-full"
                         sizes="112px"
                       />
@@ -148,7 +149,7 @@ export default function Highlights() {
 function CustomPrintsModal({ highlight, currentImageIndex, setCurrentImageIndex }: {
   highlight: any
   currentImageIndex: number
-  setCurrentImageIndex: (index: number) => void
+  setCurrentImageIndex: (value: number | ((prev: number) => number)) => void
 }) {
   useEffect(() => {
     if (!highlight?.images) return

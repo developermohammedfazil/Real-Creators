@@ -30,14 +30,11 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center">
-            <Image
-              src="/images/logo.png"
-              alt="Real Creators"
-              width={250}
-              height={80}
-              className="h-16 md:h-18 w-auto"
-            />
+          <Link href="/" className="flex items-center group">
+            <span className="text-3xl md:text-4xl font-extrabold tracking-tight">
+              <span className="text-primary-600 drop-shadow-sm">Real</span>
+              <span className="text-primary-700 ml-1">Creators</span>
+            </span>
           </Link>
 
           {/* Desktop Menu */}

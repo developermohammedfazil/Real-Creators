@@ -142,7 +142,7 @@ export default function ProductModal({ product, onClose, onAddToReference, isInR
                     onClick={() => window.location.href = 'tel:+917358906378'}
                     className="w-full flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
                   >
-                    <FaPhone size={16} />
+                    <FaPhone size={16} className="rotate-90" />
                     Call Now
                   </button>
                 </div>

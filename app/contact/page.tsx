@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { FaPhone, FaWhatsapp, FaEnvelope, FaMapMarkerAlt, FaDownload } from 'react-icons/fa'
-import emailjs from '@emailjs/browser'
+import * as emailjs from '@emailjs/browser'
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -19,31 +19,27 @@ export default function ContactPage() {
     setIsSubmitting(true)
 
     try {
-      // Initialize EmailJS with your credentials
-      // emailjs.init('YOUR_PUBLIC_KEY')
+      const result = await emailjs.send(
+        'service_yghx8l5',
+        'template_z4m00k6',
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+        },
+        'sUT5fOCHRqwvVJ10J'
+      )
       
-      // await emailjs.send(
-      //   'YOUR_SERVICE_ID',
-      //   'YOUR_TEMPLATE_ID',
-      //   {
-      //     from_name: formData.name,
-      //     from_email: formData.email,
-      //     phone: formData.phone,
-      //     message: formData.message,
-      //   }
-      // )
-
-      // Simulated success for now
-      await new Promise(resolve => setTimeout(resolve, 1000))
-      
+      console.log('Email sent successfully:', result)
       setSubmitStatus('success')
       setFormData({ name: '', email: '', phone: '', message: '' })
       
-      // Auto-refresh after 3 seconds
       setTimeout(() => {
         setSubmitStatus('idle')
       }, 3000)
     } catch (error) {
+      console.error('Email send failed:', error)
       setSubmitStatus('error')
       setTimeout(() => {
         setSubmitStatus('idle')
@@ -174,12 +170,12 @@ export default function ContactPage() {
           {/* Map and Contact Info - Second on mobile, Left on desktop */}
           <div className="order-2 lg:order-1 space-y-8">
             {/* Google Map */}
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden h-80">
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden h-80 cursor-pointer" onClick={() => window.open('https://maps.app.goo.gl/UQuyXquvm7x7SRYH8', '_blank')}>
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.5267!2d76.9558!3d11.0168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTHCsDAxJzAwLjUiTiA3NsKwNTcnMjAuOSJF!5e0!3m2!1sen!2sin!4v1234567890"
                 width="100%"
                 height="100%"
-                style={{ border: 0 }}
+                style={{ border: 0, pointerEvents: 'none' }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
@@ -206,7 +202,7 @@ export default function ContactPage() {
                 </div>
 
                   <a href="tel:+917358906378" className="flex items-start gap-2 hover:text-primary-600 transition-colors">
-                    <FaPhone className="text-primary-600 text-xl mt-1 flex-shrink-0" />
+                    <FaPhone className="text-primary-600 text-xl mt-1 flex-shrink-0 rotate-90" />
                     <div>
                       <h3 className="font-semibold text-gray-900 mb-1">Phone</h3>
                       <span>+91 73589 06378</span>
@@ -230,7 +226,7 @@ export default function ContactPage() {
                   href="tel:+917358906378"
                   className="flex items-center justify-center gap-2 w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
                 >
-                  <FaPhone />
+                  <FaPhone className="rotate-90" />
                   Call Now
                 </a>
                 

@@ -13,7 +13,7 @@ export default function BlogPage() {
       {/* Header */}
       <section 
         className="relative bg-cover bg-center py-16"
-        style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=1920&h=600&fit=crop&q=80)' }}
+        style={{ backgroundImage: 'url(/images/blog-banner.png)' }}
       >
         <div className="absolute inset-0 bg-black/50" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
