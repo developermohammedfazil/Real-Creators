@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { useSearchParams } from 'next/navigation'
-import { products, categories } from '@/lib/products'
+import { products, categories, Product } from '@/lib/products'
 import ProductCard from './ProductCard'
 import ProductModal from './ProductModal'
 import ReferenceCart from './ReferenceCart'
