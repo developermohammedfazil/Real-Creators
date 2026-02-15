@@ -16,9 +16,9 @@ const navLinks = [
 ]
 
 const socialLinks = [
-  { icon: FaInstagram, href: '#', label: 'Instagram' },
-  { icon: FaYoutube, href: '#', label: 'YouTube' },
-  { icon: FaFacebook, href: '#', label: 'Facebook' },
+  { icon: FaInstagram, href: 'https://www.instagram.com/realcreators319/', label: 'Instagram' },
+  { icon: FaYoutube, href: 'https://www.youtube.com/@realcreators319', label: 'YouTube' },
+  { icon: FaFacebook, href: 'https://www.facebook.com/real.creators.600435/', label: 'Facebook' },
 ]
 
 export default function Navbar() {
@@ -26,7 +26,8 @@ export default function Navbar() {
   const pathname = usePathname()
 
   return (
-    <nav className="bg-white shadow-md sticky top-0 z-50">
+    <header>
+      <nav className="bg-white shadow-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
@@ -102,6 +103,7 @@ export default function Navbar() {
           </div>
         </div>
       )}
-    </nav>
+      </nav>
+    </header>
   )
 }

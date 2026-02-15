@@ -8,7 +8,7 @@ const categories = [
   {
     id: 'grocery-bags',
     name: 'Grocery Jute Bags',
-    image: '/images/products/grocery-bag.png',
+    image: '/images/products/grocery-bag.webp',
     description: 'Durable bags for grocery shopping',
   },
   {
@@ -20,26 +20,32 @@ const categories = [
   {
     id: 'cosmetic-bags',
     name: 'Jute Cosmetic Bags',
-    image: '/images/products/jute-cosmetic-bag.png',
+    image: '/images/products/jute-cosmetic-bag.webp',
     description: 'Compact bags for travel and daily use',
   },
   {
     id: 'promotional-bags',
     name: 'Promotional Jute Bags',
-    image: '/images/products/promotional-bags.png',
+    image: '/images/products/promotional-bags.webp',
     description: 'Custom branded bags for marketing',
   },
   {
     id: 'custom-bags',
     name: 'Custom Printed Jute Bags',
-    image: '/images/products/customize-jute-bags.png',
+    image: '/images/products/customize-jute-bags.webp',
     description: 'Fully customizable to your needs',
   },
   {
     id: 'jute-bags',
     name: 'Jute Bags',
-    image: '/images/products/jute4.jpeg',
+    image: '/images/products/jute4.webp',
     description: 'Premium quality jute bags for all purposes',
+  },
+  {
+    id: 'tamboolam-bags',
+    name: 'Jute Tamboolam Bags',
+    image: '/images/products/gift-bag.webp',
+    description: 'Traditional bags for weddings and ceremonies',
   },
 ]
 

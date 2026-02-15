@@ -13,7 +13,7 @@ export default function AboutPage() {
       {/* Hero Section */}
       <section 
         className="relative h-[40vh] bg-cover bg-center"
-        style={{ backgroundImage: 'url(/images/about-banner.png)' }}
+        style={{ backgroundImage: 'url(/images/about-banner.webp)' }}
       >
         <div className="absolute inset-0 bg-black/50" />
         <div className="absolute inset-0 flex items-center justify-center">
@@ -29,7 +29,7 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="relative h-96 md:h-96 w-full rounded-xl overflow-hidden">
             <Image
-              src="/images/about/aboutimage.jpeg"
+              src="/images/about/aboutimage.webp"
               alt="Real Creators Manufacturing"
               fill
               className="object-contain"

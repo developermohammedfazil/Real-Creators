@@ -1,8 +1,7 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import Image from 'next/image'
-import { motion, AnimatePresence } from 'framer-motion'
 import { HiX } from 'react-icons/hi'
 
 const highlights = [
@@ -10,35 +9,35 @@ const highlights = [
     id: 1, 
     title: 'Custom Prints', 
     images: [
-      '/images/highlights/1.jpeg',
-      '/images/highlights/2.jpeg',
-      '/images/highlights/3.jpeg',
-      '/images/highlights/4.jpeg',
-      '/images/highlights/5.jpeg',
-      '/images/highlights/jute1.jpeg',
-      '/images/highlights/jute2.jpeg',
-      '/images/highlights/jute3.jpeg',
-      '/images/highlights/jute4.jpeg',
-      '/images/highlights/jute5.jpeg'
+      '/images/highlights/1.webp',
+      '/images/highlights/2.webp',
+      '/images/highlights/3.webp',
+      '/images/highlights/4.webp',
+      '/images/highlights/5.webp',
+      '/images/highlights/jute1.webp',
+      '/images/highlights/jute2.webp',
+      '/images/highlights/jute3.webp',
+      '/images/highlights/jute4.webp',
+      '/images/highlights/jute5.webp'
     ]
   },
   { 
     id: 2, 
     title: 'Eco Friendly', 
     images: [
-      '/images/highlights/eco-1.avif',
-      '/images/highlights/eco-2.jpg',
-      '/images/highlights/eco-3.png',
-      '/images/highlights/eco-4.jpg'
+      '/images/highlights/eco-1.webp',
+      '/images/highlights/eco-2.webp',
+      '/images/highlights/eco-3.webp',
+      '/images/highlights/eco-4.webp'
     ]
   },
   { 
     id: 3, 
     title: 'Premium Quality', 
     images: [
-      '/images/highlights/pq-1.png',
-      '/images/highlights/pq-2.jpg',
-      '/images/highlights/pq-3.jpg',
+      '/images/highlights/pq-1.webp',
+      '/images/highlights/pq-2.webp',
+      '/images/highlights/pq-3.webp',
       '/images/highlights/pq-4.webp'
     ]
   },
@@ -46,8 +45,8 @@ const highlights = [
     id: 4, 
     title: 'Client Reviews', 
     images: [
-      '/images/highlights/rv-1.png',
-      '/images/highlights/rv-2.png'
+      '/images/highlights/rv-1.webp',
+      '/images/highlights/rv-2.webp'
     ]
   },
   { id: 5, title: 'Manufacturing', image: 'https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=300&h=500&fit=crop&q=75' },
@@ -59,7 +58,7 @@ export default function Highlights() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
   return (
-    <section className="py-20 px-4 md:px-8">
+    <section id="highlights" className="py-20 px-4 md:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-20">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -73,25 +72,23 @@ export default function Highlights() {
         <div className="relative">
           <div className="flex gap-8 overflow-x-auto pb-8 scrollbar-hide md:flex md:justify-center md:flex-wrap md:max-w-4xl md:mx-auto md:overflow-visible md:gap-6">
             {highlights.map((highlight, index) => (
-              <motion.div
+              <div
                 key={highlight.id}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true, amount: 0.1 }}
-                transition={{ duration: 0.3 }}
                 className={`flex-shrink-0 ${index >= 3 ? 'md:block' : 'block'}`}
               >
                 <button
-                  onClick={() => setSelectedHighlight(index)}
+                  onClick={() => {
+                    setSelectedHighlight(index)
+                    setCurrentImageIndex(0)
+                  }}
                   className="group flex flex-col items-center gap-4 focus:outline-none"
                 >
                   <div className="relative w-24 h-24 md:w-28 md:h-28 rounded-full p-1 bg-gradient-to-r from-pink-400 via-red-500 to-purple-500 group-hover:from-purple-500 group-hover:to-pink-500 transition-all duration-700 shadow-xl group-hover:shadow-2xl group-hover:scale-110">
-                    <div className="w-full h-full rounded-full overflow-hidden bg-white p-0.5">
+                    <div className="relative w-full h-full rounded-full overflow-hidden bg-white p-0.5">
                       <Image
                         src={highlight.images ? highlight.images[0] : highlight.image}
                         alt={highlight.title}
                         fill
-                        priority={index < 6}
                         className="object-cover rounded-full"
                         sizes="112px"
                       />
@@ -101,37 +98,32 @@ export default function Highlights() {
                     {highlight.title}
                   </span>
                 </button>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
       </div>
 
-      <AnimatePresence>
-        {selectedHighlight !== null && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black z-50 flex items-center justify-center"
+      {selectedHighlight !== null && (
+        <div
+          className="fixed inset-0 bg-black z-50 flex items-center justify-center"
+          onClick={() => setSelectedHighlight(null)}
+        >
+          <button
             onClick={() => setSelectedHighlight(null)}
+            className="absolute top-4 right-4 text-white hover:text-gray-300 z-10"
+            aria-label="Close"
           >
-            <button
-              onClick={() => setSelectedHighlight(null)}
-              className="absolute top-4 right-4 text-white hover:text-gray-300 z-10"
-              aria-label="Close"
-            >
-              <HiX size={32} />
-            </button>
+            <HiX size={32} />
+          </button>
 
-            <CustomPrintsModal 
-              highlight={highlights[selectedHighlight]} 
-              currentImageIndex={currentImageIndex}
-              setCurrentImageIndex={setCurrentImageIndex}
-            />
-          </motion.div>
-        )}
-      </AnimatePresence>
+          <CustomPrintsModal 
+            highlight={highlights[selectedHighlight]} 
+            currentImageIndex={currentImageIndex}
+            setCurrentImageIndex={setCurrentImageIndex}
+          />
+        </div>
+      )}
 
       <style jsx global>{`
         .scrollbar-hide::-webkit-scrollbar {
@@ -151,22 +143,28 @@ function CustomPrintsModal({ highlight, currentImageIndex, setCurrentImageIndex 
   currentImageIndex: number
   setCurrentImageIndex: (value: number | ((prev: number) => number)) => void
 }) {
+  const nextImage = useCallback(() => {
+    if (highlight?.images) {
+      setCurrentImageIndex((prev) => (prev + 1) % highlight.images.length)
+    }
+  }, [highlight, setCurrentImageIndex])
+
+  const prevImage = useCallback(() => {
+    if (highlight?.images) {
+      setCurrentImageIndex((prev) => prev > 0 ? prev - 1 : highlight.images.length - 1)
+    }
+  }, [highlight, setCurrentImageIndex])
+
   useEffect(() => {
     if (!highlight?.images) return
     
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % highlight.images.length)
-    }, 3000)
-    
+    const interval = setInterval(nextImage, 3000)
     return () => clearInterval(interval)
-  }, [highlight, setCurrentImageIndex])
+  }, [highlight, nextImage])
 
   if (!highlight?.images) {
     return (
-      <motion.div
-        initial={{ scale: 0.9 }}
-        animate={{ scale: 1 }}
-        exit={{ scale: 0.9 }}
+      <div
         className="relative w-full max-w-md h-[80vh] md:h-[85vh]"
         onClick={(e) => e.stopPropagation()}
       >
@@ -177,15 +175,12 @@ function CustomPrintsModal({ highlight, currentImageIndex, setCurrentImageIndex 
           className="object-contain"
           sizes="(max-width: 768px) 100vw, 448px"
         />
-      </motion.div>
+      </div>
     )
   }
 
   return (
-    <motion.div
-      initial={{ scale: 0.9 }}
-      animate={{ scale: 1 }}
-      exit={{ scale: 0.9 }}
+    <div
       className="relative w-full max-w-md h-[80vh] md:h-[85vh]"
       onClick={(e) => e.stopPropagation()}
     >
@@ -195,13 +190,14 @@ function CustomPrintsModal({ highlight, currentImageIndex, setCurrentImageIndex 
         fill
         className="object-contain"
         sizes="(max-width: 768px) 100vw, 448px"
+        priority
       />
       
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-4">
         <button
           onClick={(e) => {
             e.stopPropagation()
-            setCurrentImageIndex((prev) => prev > 0 ? prev - 1 : highlight.images.length - 1)
+            prevImage()
           }}
           className="bg-white/20 hover:bg-white/30 text-white px-6 py-2 rounded-full backdrop-blur-sm transition-all duration-150"
         >
@@ -210,7 +206,7 @@ function CustomPrintsModal({ highlight, currentImageIndex, setCurrentImageIndex 
         <button
           onClick={(e) => {
             e.stopPropagation()
-            setCurrentImageIndex((prev) => (prev + 1) % highlight.images.length)
+            nextImage()
           }}
           className="bg-white/20 hover:bg-white/30 text-white px-6 py-2 rounded-full backdrop-blur-sm transition-all duration-150"
         >
@@ -221,6 +217,6 @@ function CustomPrintsModal({ highlight, currentImageIndex, setCurrentImageIndex 
       <div className="absolute top-4 left-4 bg-black/50 text-white px-3 py-1 rounded-full text-sm">
         {currentImageIndex + 1} / {highlight.images.length}
       </div>
-    </motion.div>
+    </div>
   )
 }

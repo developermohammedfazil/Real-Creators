@@ -5,6 +5,7 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import SocialSidebar from '@/components/SocialSidebar'
 import ScrollToTop from '@/components/ScrollToTop'
+import HighlightsHint from '@/components/HighlightsHint'
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -42,6 +43,7 @@ export default function RootLayout({
       <body className="font-sans">
         <Navbar />
         <SocialSidebar />
+        <HighlightsHint />
         <main className="min-h-screen">
           {children}
         </main>

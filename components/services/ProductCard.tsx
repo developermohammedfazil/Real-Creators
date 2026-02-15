@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import { Product } from '@/lib/products'
 import { motion } from 'framer-motion'
+import { FaWhatsapp } from 'react-icons/fa'
 
 interface ProductCardProps {
   product: Product
@@ -12,6 +13,9 @@ interface ProductCardProps {
 }
 
 export default function ProductCard({ product, onViewDetails, onAddToReference, isInReference }: ProductCardProps) {
+  const handleWhatsAppCatalog = () => {
+    window.open('https://wa.me/c/917358906378', '_blank')
+  }
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -59,6 +63,14 @@ export default function ProductCard({ product, onViewDetails, onAddToReference, 
             {isInReference ? 'Added' : 'Add to Card'}
           </button>
         </div>
+
+        <button
+          onClick={handleWhatsAppCatalog}
+          className="w-full flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-4 rounded-lg transition-all duration-200 hover:shadow-lg mt-3"
+        >
+          <FaWhatsapp size={20} />
+          WhatsApp Catalog
+        </button>
       </div>
     </motion.div>
   )

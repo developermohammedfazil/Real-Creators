@@ -12,23 +12,23 @@ import 'swiper/css/pagination'
 
 const heroSlides = [
   {
-    image: '/images/hero/slide1.jpg',
+    image: '/images/hero/slide1.webp',
     alt: 'Premium Jute Bags Collection',
   },
   {
-    image: '/images/hero/slide2.jpg',
+    image: '/images/hero/slide2.webp',
     alt: 'Custom Printed Jute Bags',
   },
   {
-    image: '/images/hero/slide3.jpg',
+    image: '/images/hero/slide3.webp',
     alt: 'Eco-Friendly Packaging Solutions',
   },
   {
-    image: '/images/hero/slide4.jpg',
+    image: '/images/hero/slide4.webp',
     alt: 'Bulk Jute Bag Manufacturing',
   },
   {
-    image: '/images/hero/slide5.jpg',
+    image: '/images/hero/slide5.webp',
     alt: 'Real Creators Jute Products',
   },
 ]

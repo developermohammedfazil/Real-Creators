@@ -32,7 +32,7 @@ export const blogPosts: BlogPost[] = [
       <h2>Perfect for Retailers</h2>
       <p>Retailers offering branded grocery jute bags create a positive shopping experience while promoting their brand. Customers appreciate the quality and will use these bags repeatedly, providing ongoing brand visibility.</p>
     `,
-    image: '/images/products/grocery-bag.png',
+    image: '/images/products/grocery-bag.webp',
     author: 'Real Creators Team',
     date: '2024-01-15',
     category: 'Products',
@@ -58,7 +58,7 @@ export const blogPosts: BlogPost[] = [
       <h2>Perfect for Events and Promotions</h2>
       <p>Custom printed jute bags make excellent giveaways at trade shows, corporate events, and promotional campaigns. They're practical gifts that recipients will actually use and appreciate.</p>
     `,
-    image: '/images/products/customize-jute-bags.png',
+    image: '/images/products/customize-jute-bags.webp',
     author: 'Real Creators Team',
     date: '2024-01-10',
     category: 'Branding',
@@ -113,7 +113,7 @@ export const blogPosts: BlogPost[] = [
       <h2>Long-Term Value</h2>
       <p>Unlike digital ads that disappear or flyers that get thrown away, promotional jute bags provide years of brand exposure. Calculate the cost per impression, and you'll find they're one of the most economical marketing strategies available.</p>
     `,
-    image: '/images/products/promotional-bags.png',
+    image: '/images/products/promotional-bags.webp',
     author: 'Real Creators Team',
     date: '2023-12-28',
     category: 'Marketing',

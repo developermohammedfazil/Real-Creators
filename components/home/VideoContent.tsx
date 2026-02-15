@@ -15,7 +15,7 @@ export default function VideoContent() {
         >
           <div className="relative aspect-video rounded-xl overflow-hidden shadow-2xl">
             <iframe
-              src="https://www.youtube.com/embed/1tD8xD0wQrI"
+              src="https://www.youtube-nocookie.com/embed/1tD8xD0wQrI"
               title="Real Creators Manufacturing Process"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
