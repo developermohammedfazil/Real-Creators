@@ -33,7 +33,7 @@ export default function AboutPage() {
               alt="Real Creators Manufacturing"
               fill
               className="object-contain"
-              sizes="100vw"
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
           </div>
           

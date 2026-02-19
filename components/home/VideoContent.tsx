@@ -1,8 +1,24 @@
 'use client'
 
+import { useState, useRef } from 'react'
 import { motion } from 'framer-motion'
+import { FaPlay, FaPause } from 'react-icons/fa'
 
 export default function VideoContent() {
+  const [isPlaying, setIsPlaying] = useState(false)
+  const videoRef = useRef<HTMLVideoElement>(null)
+
+  const togglePlay = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause()
+      } else {
+        videoRef.current.play()
+      }
+      setIsPlaying(!isPlaying)
+    }
+  }
+
   return (
     <section className="bg-gray-50 section-container">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
@@ -13,14 +29,28 @@ export default function VideoContent() {
           viewport={{ once: true }}
           className="order-1"
         >
-          <div className="relative aspect-video rounded-xl overflow-hidden shadow-2xl">
-            <iframe
-              src="https://www.youtube-nocookie.com/embed/1tD8xD0wQrI"
-              title="Real Creators Manufacturing Process"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="absolute inset-0 w-full h-full"
-            />
+          <div className="relative aspect-video rounded-xl overflow-hidden shadow-2xl group cursor-pointer" onClick={togglePlay}>
+            <video
+              ref={videoRef}
+              src="/videos/ad-video.webm"
+              className="w-full h-full object-cover"
+              preload="metadata"
+              onPlay={() => setIsPlaying(true)}
+              onPause={() => setIsPlaying(false)}
+            >
+              Your browser does not support the video tag.
+            </video>
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <div className={`bg-black/50 rounded-full p-6 transition-opacity duration-300 ${
+                isPlaying ? 'opacity-0 group-hover:opacity-100' : 'opacity-100'
+              }`}>
+                {isPlaying ? (
+                  <FaPause className="text-white text-4xl" />
+                ) : (
+                  <FaPlay className="text-white text-4xl ml-1" />
+                )}
+              </div>
+            </div>
           </div>
         </motion.div>
 

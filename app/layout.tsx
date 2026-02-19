@@ -18,6 +18,9 @@ export const metadata: Metadata = {
   description: 'Leading jute bags manufacturer offering customized eco-friendly packaging solutions for B2B and B2C. Premium quality jute bags with custom prints and branding services.',
   keywords: 'jute bags, eco-friendly bags, custom jute bags, jute bag manufacturer, sustainable packaging, branded jute bags, bulk jute bags',
   authors: [{ name: 'Real Creators' }],
+  icons: {
+    icon: '/favicon.svg',
+  },
   openGraph: {
     title: 'Real Creators - Premium Jute Bags Manufacturer',
     description: 'Leading jute bags manufacturer offering customized eco-friendly packaging solutions',

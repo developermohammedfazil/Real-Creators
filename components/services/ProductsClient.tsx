@@ -71,20 +71,20 @@ export default function ProductsClient() {
 
       {/* Search Bar */}
       <div className="bg-white shadow-sm py-6">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex gap-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex gap-3">
           <input
             type="text"
             placeholder="Search products..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="flex-1 px-6 py-3 border-2 border-gray-300 rounded-lg focus:border-primary-500 focus:outline-none text-lg"
+            className="flex-1 px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-primary-500 focus:outline-none text-base"
           />
           <button
             onClick={() => setShowFilters(!showFilters)}
-            className="lg:hidden flex items-center gap-2 bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors"
+            className="lg:hidden flex items-center gap-2 bg-primary-600 text-white px-4 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors whitespace-nowrap"
           >
-            <FaFilter size={18} />
-            Filters
+            <FaFilter size={16} />
+            <span className="hidden xs:inline">Filters</span>
           </button>
         </div>
       </div>

@@ -18,12 +18,6 @@ const categories = [
     description: 'Premium packaging for special occasions',
   },
   {
-    id: 'cosmetic-bags',
-    name: 'Jute Cosmetic Bags',
-    image: '/images/products/jute-cosmetic-bag.webp',
-    description: 'Compact bags for travel and daily use',
-  },
-  {
     id: 'promotional-bags',
     name: 'Promotional Jute Bags',
     image: '/images/products/promotional-bags.webp',
@@ -36,15 +30,15 @@ const categories = [
     description: 'Fully customizable to your needs',
   },
   {
-    id: 'jute-bags',
-    name: 'Jute Bags',
-    image: '/images/products/jute4.webp',
-    description: 'Premium quality jute bags for all purposes',
+    id: 'shopping-bags',
+    name: 'Jute Shopping Bags',
+    image: '/images/categories/jutebag-1.webp',
+    description: 'Eco-friendly shopping bags for daily use',
   },
   {
     id: 'tamboolam-bags',
-    name: 'Jute Tamboolam Bags',
-    image: '/images/products/gift-bag.webp',
+    name: 'Tamboolam Bags',
+    image: '/images/products/tamboolam-bags.webp',
     description: 'Traditional bags for weddings and ceremonies',
   },
 ]

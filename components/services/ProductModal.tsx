@@ -3,8 +3,10 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import { Product } from '@/lib/products'
+import { categoryImages } from '@/lib/categoryImages'
 import { HiX } from 'react-icons/hi'
 import { FaWhatsapp, FaPhone, FaEnvelope } from 'react-icons/fa'
+import { useState } from 'react'
 
 interface ProductModalProps {
   product: Product
@@ -14,6 +16,8 @@ interface ProductModalProps {
 }
 
 export default function ProductModal({ product, onClose, onAddToReference, isInReference }: ProductModalProps) {
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0)
+  const categoryImageList = categoryImages[product.category as keyof typeof categoryImages] || [product.image]
   const handleWhatsApp = () => {
     const message = `Hi, I'm interested in ${product.name} (${product.id}). Price: ₹${product.price}`
     window.open(`https://wa.me/917358906378?text=${encodeURIComponent(message)}`, '_blank')
@@ -66,14 +70,41 @@ export default function ProductModal({ product, onClose, onAddToReference, isInR
           <div className="p-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* Image */}
-              <div className="relative h-96 rounded-lg overflow-hidden">
-                <Image
-                  src={product.image}
-                  alt={product.name}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
+              <div>
+                <div className="relative h-96 rounded-lg overflow-hidden mb-4">
+                  <Image
+                    src={categoryImageList[selectedImageIndex]}
+                    alt={product.name}
+                    fill
+                    priority
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
+                
+                {/* Image Gallery */}
+                {categoryImageList.length > 1 && (
+                  <div className="grid grid-cols-4 gap-2">
+                    {categoryImageList.map((image, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setSelectedImageIndex(index)}
+                        className={`relative h-20 rounded-lg overflow-hidden border-2 transition-colors ${
+                          selectedImageIndex === index ? 'border-primary-600' : 'border-gray-200 hover:border-gray-300'
+                        }`}
+                      >
+                        <Image
+                          src={image}
+                          alt={`${product.name} ${index + 1}`}
+                          fill
+                          priority={index < 4}
+                          className="object-cover"
+                          sizes="80px"
+                        />
+                      </button>
+                    ))}
+                  </div>
+                )}
               </div>
 
               {/* Details */}
